@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+
+  <!-- © 2026 Mayara Cristina Nascimento. Todos os direitos reservados. https://maycristina.github.io -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Coin in box — Explore moedas</title>
+  <meta name="description"
+    content="Jogue cara ou coroa com moedas de outros países e de outras épocas. Conheça o acervo e a história do jogo.">
+  <meta property="og:title" content="Coin in box — Explore moedas">
+  <meta property="og:description"
+    content="Jogue cara ou coroa com moedas de outros países e de outras épocas. Conheça o acervo e a história do jogo.">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noimageindex">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('coin-in-box:tema'); } catch (e) { }
+      if (t !== 'claro' && t !== 'escuro') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+      document.documentElement.dataset.tema = t;
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <script
+    type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+  <script type="module" crossorigin src="/assets/apresentacao-CZ0xV35x.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/textos-kpMZvBEc.js">
+  <link rel="stylesheet" crossorigin href="/assets/apresentacao-DGaCvlnb.css">
+</head>
+
+<body>
+
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="dots"></div>
+  <div class="halo" id="halo"></div>
+  <div class="progress" id="progress"></div>
+
+  <header class="top">
+    <a class="logo" href="/"><span class="d"></span>Coin in box</a>
+    <div class="tools">
+      <a class="pill" href="/">Jogar ↗</a>
+      <button class="round" id="temaBtn" type="button" aria-pressed="false" aria-label="Tema escuro">
+        <svg class="tema-lua" viewBox="0 0 16 16">
+          <path d="M13.4 9.6A5.6 5.6 0 0 1 6.4 2.6a5.6 5.6 0 1 0 7 7z" />
+        </svg>
+        <svg class="tema-sol" viewBox="0 0 16 16">
+          <circle cx="8" cy="8" r="2.9" />
+          <path d="M8 1.6v1.5M8 12.9v1.5M1.6 8h1.5M12.9 8h1.5M3.5 3.5l1 1M11.5 11.5l1 1M3.5 12.5l1-1M11.5 4.5l1-1" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+
+    <!-- abertura -->
+    <section class="scene" id="s0" aria-label="Abertura">
+      <div class="scene-inner hero">
+        <h1 class="h1 in" style="--i:0">Explore moedas<span class="l2" id="rotator" aria-live="off">
+            <span class="on">do Brasil</span><span>do Japão</span><span>de Roma</span><span>do Canadá</span><span>do
+              Egito</span><span>do Reino Unido</span>
+          </span></h1>
+        <p class="lede in" style="--i:1">Jogue moedas de outros países e de outras épocas. Cara ou coroa, o resto é
+          descoberta.</p>
+        <div class="ctas in" style="--i:2">
+          <a class="btn btn-dark" href="/">Jogar no coininbox.cc <span class="arr">↘</span></a>
+          <button class="btn btn-line" type="button" data-go="1">Explorar <span class="arr">↓</span></button>
+        </div>
+        <div class="chapters in" style="--i:3">
+          <button type="button" data-go="1"><b>Explore</b> o mundo</button>
+          <button type="button" data-go="2"><b>Moedas</b> incomuns</button>
+          <button type="button" data-go="3"><b>Viaje</b> no tempo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- explorar -->
+    <section class="scene" id="s1" aria-label="Explore moedas do mundo">
+      <div class="scene-inner">
+        <div class="explore">
+          <div class="explore-head">
+            <h2 class="h2 in" style="--i:0">Explore moedas<br><span class="serif">do mundo</span></h2>
+            <p class="eyebrow in" style="--i:1"><b>+100</b> moedas e histórias países</p>
+          </div>
+          <div class="places" id="places"></div>
+          <div class="readout caps in" style="--i:9"><span class="bar"></span><span id="readout"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- moedas incomuns -->
+    <section class="scene" id="s2" aria-label="Moedas incomuns">
+      <div class="scene-inner">
+        <div class="odd">
+          <div class="odd-core">
+            <p class="eyebrow in" style="--i:0">Moedas incomuns</p>
+            <h2 class="h2 in" style="--i:1">Nem toda moeda <span class="serif">é redonda.</span></h2>
+          </div>
+          <div class="specs" id="specs"></div>
+          <p class="specs-fonte in" style="--i:7" id="specsFonte"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- viaje no tempo -->
+    <section class="scene" id="s3" aria-label="Viaje no tempo">
+      <div class="scene-inner">
+        <div class="time">
+          <div class="time-head">
+            <p class="eyebrow in" style="--i:0">Viaje no tempo</p>
+            <h2 class="h2 in" style="--i:1">2.200 anos <span class="serif">em quatro moedas.</span></h2>
+            <div class="story">
+              <p class="in" style="--i:2">A tradição do 'cara ou coroa' tem raízes na Roma Antiga, onde o jogo era
+                conhecido como 'navio ou cara' (<em>navia aut caput</em>).</p>
+              <p class="in" style="--i:3">A brincadeira fazia referência às moedas da época: de um lado, traziam o rosto
+                do deus Jano (ser mitológico de duas faces), e do outro, a imagem de uma embarcação, já que os romanos o
+                consideravam o inventor dos barcos.</p>
+              <p class="in" style="--i:4">Com o tempo, a prática navegou o mundo e moldou-se à cultura de cada país. No
+                Reino Unido, virou <em>'heads or tails'</em> (cabeças ou caudas) e, no México, 'águia ou sol'.</p>
+              <p class="in" style="--i:5">No Brasil, a expressão nasceu no período colonial, na época das 'patacas'. Em
+                1727, as moedas ganharam um novo design: uma face exibia o rosto (a 'cara') do Rei de Portugal, D. João
+                V, enquanto o verso estampava as armas da 'coroa' portuguesa.</p>
+            </div>
+          </div>
+          <ol class="rows">
+            <li class="row in" style="--i:3">
+              <div class="slot" data-slot="2"></div>
+              <div class="yr">211<small>a.C.</small></div>
+              <p><b>Roma</b>Surge o denário de prata, marcado com um X.</p>
+            </li>
+            <li class="row in" style="--i:4">
+              <div class="slot" data-slot="3"></div>
+              <div class="yr">1987</div>
+              <p><b>Canadá</b>O loonie de 11 lados substitui a nota de 1 dólar.</p>
+            </li>
+            <li class="row in" style="--i:5">
+              <div class="slot" data-slot="0"></div>
+              <div class="yr">1994</div>
+              <p><b>Brasil</b>Nasce o Real.</p>
+            </li>
+            <li class="row in" style="--i:6">
+              <div class="slot" data-slot="5"></div>
+              <div class="yr">2017</div>
+              <p><b>Reino Unido</b>A libra ganha 12 lados e dois metais.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- a caixa -->
+    <section class="scene" id="s4" aria-label="Coin in box">
+      <div class="scene-inner">
+        <div class="fin">
+          <p class="eyebrow in" style="--i:0">A caixa</p>
+          <h2 class="h1 in" style="--i:1">Coin <span class="serif">in</span> box</h2>
+          <p class="lede in" style="--i:2">Todas essas moedas cabem numa caixa. Ela está aberta.</p>
+          <div class="ctas in" style="--i:3">
+            <a class="btn btn-dark" href="/">Abrir a caixa <span class="arr">↘</span></a>
+            <button class="btn btn-line" type="button" data-go="0">Voltar ao início</button>
+          </div>
+          <p class="url in" style="--i:4">coininbox.cc</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>
