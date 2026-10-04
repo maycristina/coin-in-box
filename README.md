@@ -60,8 +60,20 @@ Lanza la moneda con un toque, deslizando el dedo, sacudiendo el celular o levant
 | Serra Leoa — 20 cêntimos (1964) | [20 Sierra Leone Cents (1964).jpg](https://commons.wikimedia.org/wiki/File:20_Sierra_Leone_Cents_(1964).jpg) | AKS.9955 | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) |
 | Suriname — 20 dólares (2008) | [Médaille commémorative 2008 - anthony nesty.jpg](https://commons.wikimedia.org/wiki/File:M%C3%A9daille_comm%C3%A9morative_2008_-_anthony_nesty.jpg) | Lorevdoreb | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) |
 
+## Créditos da música · Music credits · Créditos de la música
+
+- **PT —** A música ambiente da página `/sobre/` usa faixas da [Pixabay](https://pixabay.com/), licenciadas pela [Pixabay Content License](https://pixabay.com/service/license-summary/) (uso gratuito, inclusive comercial, sem obrigação de atribuição; as faixas não são redistribuídas isoladamente). Os certificados de download estão em `audio/musica/licencas/`.
+- **EN —** The ambient music on the `/sobre/` page uses tracks from [Pixabay](https://pixabay.com/), licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/) (free to use, including commercially, no attribution required; tracks are not redistributed on their own). Download certificates are in `audio/musica/licencas/`.
+- **ES —** La música ambiental de la página `/sobre/` usa pistas de [Pixabay](https://pixabay.com/), con licencia [Pixabay Content License](https://pixabay.com/service/license-summary/) (uso gratuito, también comercial, sin obligación de atribución; las pistas no se redistribuyen por separado). Los certificados de descarga están en `audio/musica/licencas/`.
+
+| Faixa · Track · Pista | Autor · Author · Autor | Fonte · Source · Fuente | Licença · License · Licencia |
+|---|---|---|---|
+| Ambient Calm | atlasaudio | [Pixabay #606216](https://pixabay.com/pt/music/ambiente-ambient-calm-606216/) | [Pixabay Content License](https://pixabay.com/service/license-summary/) · [certificado](audio/musica/licencas/ambiente-ambient-calm-606216-license.txt) |
+| Calmness Piano Sad Reflection Mood | echoes_of_lumen | [Pixabay #589286](https://pixabay.com/pt/music/pequeno-drama-calmness-piano-sad-reflection-mood-589286/) | [Pixabay Content License](https://pixabay.com/service/license-summary/) · [certificado](audio/musica/licencas/pequeno-drama-calmness-piano-sad-reflection-mood-589286-license.txt) |
+| Minimal Piano | leberch | [Pixabay #589900](https://pixabay.com/pt/music/pequeno-drama-minimal-piano-589900/) | [Pixabay Content License](https://pixabay.com/service/license-summary/) · [certificado](audio/musica/licencas/pequeno-drama-minimal-piano-589900-license.txt) |
+
 ## Licença · License · Licencia
 
-- **PT —** Todos os direitos reservados — ver [`LICENSE`](LICENSE), com exceção das imagens listadas acima, que seguem suas licenças originais.
-- **EN —** All rights reserved — see [`LICENSE`](LICENSE), except for the images listed above, which keep their original licenses.
-- **ES —** Todos los derechos reservados — ver [`LICENSE`](LICENSE), excepto las imágenes listadas arriba, que mantienen sus licencias originales.
+- **PT —** Todos os direitos reservados — ver [`LICENSE`](LICENSE), com exceção das imagens listadas acima, que seguem suas licenças originais, e das faixas de música, que seguem a Pixabay Content License.
+- **EN —** All rights reserved — see [`LICENSE`](LICENSE), except for the images listed above, which keep their original licenses, and the music tracks, which follow the Pixabay Content License.
+- **ES —** Todos los derechos reservados — ver [`LICENSE`](LICENSE), excepto las imágenes listadas arriba, que mantienen sus licencias originales, y las pistas de música, que siguen la Pixabay Content License.

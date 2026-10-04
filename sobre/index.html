@@ -31,9 +31,10 @@
     href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
   <script
     type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
-  <script type="module" crossorigin src="/assets/sobre-UqFpJOiC.js"></script>
-  <link rel="modulepreload" crossorigin href="/assets/textos-C0tNqU2A.js">
-  <link rel="stylesheet" crossorigin href="/assets/sobre-D8EdsN5E.css">
+  <script type="module" crossorigin src="/assets/sobre-DYAnVqV_.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/assets/textos-SmSfAekN.js">
+  <link rel="stylesheet" crossorigin href="/assets/sobre-BEVAklr5.css">
 </head>
 
 <body>
@@ -47,6 +48,16 @@
     <a class="logo" href="/"><span class="d"></span>Coin in box</a>
     <div class="tools">
       <a class="pill" href="/" data-t="jogar">Jogar ↗</a>
+      <button class="round" id="somBtn" type="button" aria-pressed="false" data-t-aria="somLigar">
+        <svg class="som-on" viewBox="0 0 16 16">
+          <path d="M1.6 6.2h2.4L7.6 3v10L4 9.8H1.6z" />
+          <path d="M10.2 5.4a4 4 0 0 1 0 5.2M12 3.6a7 7 0 0 1 0 8.8" />
+        </svg>
+        <svg class="som-off" viewBox="0 0 16 16">
+          <path d="M1.6 6.2h2.4L7.6 3v10L4 9.8H1.6z" />
+          <path d="m10.3 5.6 3.9 4.8M14.2 5.6l-3.9 4.8" />
+        </svg>
+      </button>
       <button class="round idioma" id="idiomaBtn" type="button" aria-label="Idioma: Português. Toque para trocar.">PT</button>
       <button class="round" id="temaBtn" type="button" aria-pressed="false" aria-label="Tema escuro" data-t-aria="temaEscuro">
         <svg class="tema-lua" viewBox="0 0 16 16">
@@ -59,6 +70,49 @@
       </button>
     </div>
   </header>
+
+  <div class="a11y" id="a11y">
+    <button class="a11y-btn" id="a11yBtn" type="button" aria-haspopup="dialog" aria-expanded="false"
+      aria-controls="a11yPainel" data-t-aria="a11yBotao" data-t-title="a11yBotao">
+      <svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="8" cy="8" r="6.6" />
+        <circle cx="8" cy="4.9" r=".55" fill="currentColor" />
+        <path d="M4.6 6.6c2.2.55 4.6.55 6.8 0M8 7v2.3M6.5 12l1.5-2.7L9.5 12" />
+      </svg>
+    </button>
+    <div class="a11y-painel" id="a11yPainel" role="dialog" aria-labelledby="a11yTitulo" hidden>
+      <div class="a11y-cab">
+        <h2 id="a11yTitulo" data-t="a11yTitulo">Acessibilidade</h2>
+        <button class="a11y-x" id="a11yFechar" type="button" data-t-aria="a11yFechar">
+          <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" /></svg>
+        </button>
+      </div>
+
+      <section class="a11y-grupo" aria-labelledby="a11yLeituraH">
+        <h3 id="a11yLeituraH" data-t="a11yLeitura">Leitura em voz alta</h3>
+        <button class="a11y-op" id="lerSecao" type="button"><span data-t="a11yOuvirSecao">Ouvir esta seção</span></button>
+        <button class="a11y-op" id="lerPagina" type="button"><span data-t="a11yOuvirPagina">Ouvir a página toda</span></button>
+        <button class="a11y-op" id="lerParar" type="button" hidden><span data-t="a11yParar">Parar leitura</span></button>
+        <p class="a11y-aviso" id="a11yAviso" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="a11y-grupo" aria-labelledby="a11yTextoH">
+        <h3 id="a11yTextoH" data-t="a11yTexto">Tamanho do texto</h3>
+        <div class="a11y-passo">
+          <button class="a11y-mini" id="textoMenos" type="button" data-t-aria="a11yMenos"><span aria-hidden="true">A−</span></button>
+          <output id="textoValor" aria-live="polite">100%</output>
+          <button class="a11y-mini" id="textoMais" type="button" data-t-aria="a11yMais"><span aria-hidden="true">A+</span></button>
+        </div>
+      </section>
+
+      <section class="a11y-grupo">
+        <button class="a11y-chave" id="chaveContraste" type="button" role="switch" aria-checked="false"><span data-t="a11yContraste">Alto contraste</span><i aria-hidden="true"></i></button>
+        <button class="a11y-chave" id="chaveMovimento" type="button" role="switch" aria-checked="false"><span data-t="a11yMovimento">Reduzir movimento</span><i aria-hidden="true"></i></button>
+      </section>
+
+      <button class="a11y-reset" id="a11yReset" type="button" data-t="a11yRedefinir">Redefinir</button>
+    </div>
+  </div>
 
   <main class="stage" id="stage">
 
@@ -170,8 +224,11 @@
           </div>
           <p class="url in" style="--i:4">coininbox.cc</p>
           <footer class="rodape in" style="--i:5">
-            <span><span data-t="rodapeDev">Desenvolvido por</span> <a href="https://maycristina.github.io" target="_blank" rel="noopener">Mabo</a></span>
+            <span><span data-t="rodapeDev">Desenvolvido por</span> <a href="https://maycristina.github.io" target="_blank" rel="noopener">Mayara</a></span>
             <a class="rodape-gh" href="https://github.com/maycristina" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+            <button class="rodape-gh rodape-btn" id="compartilharBtn" type="button" data-t-aria="compartilhar" data-t-title="compartilhar"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10V2.5M5 5.2 8 2.3l3 2.9M3.5 8.5v4.2h9V8.5" /></svg></button>
+            <a class="rodape-priv" href="/privacidade/" data-t="rodapePrivacidade">Privacidade</a>
+            <span class="rodape-aviso" id="compartilharAviso" role="status" aria-live="polite"></span>
             <span>© 2026 Mayara. <span data-t="rodapeDireitos">Todos os direitos reservados.</span></span>
           </footer>
         </div>
