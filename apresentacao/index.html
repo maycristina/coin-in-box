@@ -2,26 +2,26 @@
 <html lang="pt-BR">
 
 <head>
-  <!-- A apresentação mudou de /apresentacao/ para /sobre/. Esta página só redireciona,
+  <!-- A apresentação mudou de /apresentacao/ para /about/ (antes /sobre/). Esta página só redireciona,
        traduzindo a âncora antiga por número (#s2) para o nome da seção (#incomuns). -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex">
   <title>Coin in box</title>
-  <link rel="canonical" href="https://coininbox.cc/sobre/">
+  <link rel="canonical" href="https://coininbox.cc/about/">
   <script>
     (function () {
       var nomes = ['', 'explorar', 'incomuns', 'tempo', 'caixa'];
       var m = /^#s(\d+)$/.exec(location.hash);
       var ancora = m ? (nomes[+m[1]] ? '#' + nomes[+m[1]] : '') : location.hash;
-      location.replace('/sobre/' + ancora);
+      location.replace('/about/' + ancora);
     })();
   </script>
-  <meta http-equiv="refresh" content="0; url=/sobre/">
+  <meta http-equiv="refresh" content="0; url=/about/">
 </head>
 
 <body>
-  <p><a href="/sobre/">coininbox.cc/sobre</a></p>
+  <p><a href="/about/">coininbox.cc/about</a></p>
 </body>
 
 </html>

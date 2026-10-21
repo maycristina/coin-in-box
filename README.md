@@ -8,7 +8,7 @@ Coin in box é um jogo de cara ou coroa com moedas de verdade, de muitos países
 
 Você joga a moeda para o alto com um toque, deslizando o dedo, sacudindo o celular ou levantando o aparelho, e ela gira até cair em cara ou coroa. O jogo está em português, inglês e espanhol, tem tema claro e escuro e lê os textos em voz alta.
 
-- **Site oficial:** [coininbox.cc/sobre](https://coininbox.cc/sobre/)
+- **Site oficial:** [coininbox.cc/about](https://coininbox.cc/about/)
 - **Jogar:** [coininbox.cc](https://coininbox.cc/)
 
 ## English
@@ -17,7 +17,7 @@ Coin in box is a heads-or-tails game played with real coins from many countries 
 
 Toss the coin with a tap, a swipe, a shake of your phone or by lifting it, and watch it spin until it lands heads or tails. The game is available in Portuguese, English and Spanish, has light and dark themes and can read its texts aloud.
 
-- **Official site:** [coininbox.cc/sobre](https://coininbox.cc/sobre/)
+- **Official site:** [coininbox.cc/about](https://coininbox.cc/about/)
 - **Play:** [coininbox.cc](https://coininbox.cc/)
 
 ## Español
@@ -26,7 +26,7 @@ Coin in box es un juego de cara o cruz con monedas reales de muchos países y é
 
 Lanza la moneda con un toque, deslizando el dedo, sacudiendo el celular o levantándolo, y mira cómo gira hasta caer en cara o cruz. El juego está en portugués, inglés y español, tiene tema claro y oscuro y lee los textos en voz alta.
 
-- **Sitio oficial:** [coininbox.cc/sobre](https://coininbox.cc/sobre/)
+- **Sitio oficial:** [coininbox.cc/about](https://coininbox.cc/about/)
 - **Jugar:** [coininbox.cc](https://coininbox.cc/)
 
 ## Créditos das imagens · Image credits · Créditos de las imágenes
@@ -62,9 +62,9 @@ Lanza la moneda con un toque, deslizando el dedo, sacudiendo el celular o levant
 
 ## Créditos da música · Music credits · Créditos de la música
 
-- **PT —** A música ambiente da página `/sobre/` usa faixas da [Pixabay](https://pixabay.com/), licenciadas pela [Pixabay Content License](https://pixabay.com/service/license-summary/) (uso gratuito, inclusive comercial, sem obrigação de atribuição; as faixas não são redistribuídas isoladamente). Os certificados de download estão em `audio/musica/licencas/`.
-- **EN —** The ambient music on the `/sobre/` page uses tracks from [Pixabay](https://pixabay.com/), licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/) (free to use, including commercially, no attribution required; tracks are not redistributed on their own). Download certificates are in `audio/musica/licencas/`.
-- **ES —** La música ambiental de la página `/sobre/` usa pistas de [Pixabay](https://pixabay.com/), con licencia [Pixabay Content License](https://pixabay.com/service/license-summary/) (uso gratuito, también comercial, sin obligación de atribución; las pistas no se redistribuyen por separado). Los certificados de descarga están en `audio/musica/licencas/`.
+- **PT —** A música ambiente da página `/about/` usa faixas da [Pixabay](https://pixabay.com/), licenciadas pela [Pixabay Content License](https://pixabay.com/service/license-summary/) (uso gratuito, inclusive comercial, sem obrigação de atribuição; as faixas não são redistribuídas isoladamente). Os certificados de download estão em `audio/musica/licencas/`.
+- **EN —** The ambient music on the `/about/` page uses tracks from [Pixabay](https://pixabay.com/), licensed under the [Pixabay Content License](https://pixabay.com/service/license-summary/) (free to use, including commercially, no attribution required; tracks are not redistributed on their own). Download certificates are in `audio/musica/licencas/`.
+- **ES —** La música ambiental de la página `/about/` usa pistas de [Pixabay](https://pixabay.com/), con licencia [Pixabay Content License](https://pixabay.com/service/license-summary/) (uso gratuito, también comercial, sin obligación de atribución; las pistas no se redistribuyen por separado). Los certificados de descarga están en `audio/musica/licencas/`.
 
 | Faixa · Track · Pista | Autor · Author · Autor | Fonte · Source · Fuente | Licença · License · Licencia |
 |---|---|---|---|

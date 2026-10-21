@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+
+  <!-- © 2026 Mayara Cristina Nascimento. Todos os direitos reservados. https://maycristina.github.io -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Coin in box — Explore moedas</title>
+  <meta name="description"
+    content="Jogue cara ou coroa com moedas de outros países e de outras épocas. Conheça o acervo e a história do jogo.">
+  <meta property="og:title" content="Coin in box — Explore moedas">
+  <meta property="og:description"
+    content="Jogue cara ou coroa com moedas de outros países e de outras épocas. Conheça o acervo e a história do jogo.">
+  <meta property="og:locale" content="pt_BR">
+  <meta name="color-scheme" content="light dark">
+  <meta name="robots" content="noimageindex">
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem('coin-in-box:tema'); } catch (e) { }
+      if (t !== 'claro' && t !== 'escuro') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'escuro' : 'claro';
+      document.documentElement.dataset.tema = t;
+      document.documentElement.classList.add('js');
+    })();
+  </script>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+  <script
+    type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"}}</script>
+  <script type="module" crossorigin src="/assets/about-BPuVHb0S.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+  <link rel="modulepreload" crossorigin href="/assets/moedas-C1ZsExzO.js">
+  <link rel="modulepreload" crossorigin href="/assets/assinatura-mabo-BXmSGsDA.js">
+  <link rel="stylesheet" crossorigin href="/assets/about-BEVAklr5.css">
+</head>
+
+<body>
+
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="dots"></div>
+  <div class="halo" id="halo"></div>
+  <div class="progress" id="progress"></div>
+
+  <header class="top">
+    <a class="logo" href="/"><span class="d"></span>Coin in box</a>
+    <div class="tools">
+      <a class="pill" href="/" data-t="jogar">Jogar ↗</a>
+      <button class="round" id="somBtn" type="button" aria-pressed="false" data-t-aria="somLigar">
+        <svg class="som-on" viewBox="0 0 16 16">
+          <path d="M1.6 6.2h2.4L7.6 3v10L4 9.8H1.6z" />
+          <path d="M10.2 5.4a4 4 0 0 1 0 5.2M12 3.6a7 7 0 0 1 0 8.8" />
+        </svg>
+        <svg class="som-off" viewBox="0 0 16 16">
+          <path d="M1.6 6.2h2.4L7.6 3v10L4 9.8H1.6z" />
+          <path d="m10.3 5.6 3.9 4.8M14.2 5.6l-3.9 4.8" />
+        </svg>
+      </button>
+      <button class="round idioma" id="idiomaBtn" type="button" aria-label="Idioma: Português. Toque para trocar.">PT</button>
+      <button class="round" id="temaBtn" type="button" aria-pressed="false" aria-label="Tema escuro" data-t-aria="temaEscuro">
+        <svg class="tema-lua" viewBox="0 0 16 16">
+          <path d="M13.4 9.6A5.6 5.6 0 0 1 6.4 2.6a5.6 5.6 0 1 0 7 7z" />
+        </svg>
+        <svg class="tema-sol" viewBox="0 0 16 16">
+          <circle cx="8" cy="8" r="2.9" />
+          <path d="M8 1.6v1.5M8 12.9v1.5M1.6 8h1.5M12.9 8h1.5M3.5 3.5l1 1M11.5 11.5l1 1M3.5 12.5l1-1M11.5 4.5l1-1" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="a11y" id="a11y">
+    <button class="a11y-btn" id="a11yBtn" type="button" aria-haspopup="dialog" aria-expanded="false"
+      aria-controls="a11yPainel" data-t-aria="a11yBotao" data-t-title="a11yBotao">
+      <svg viewBox="0 0 16 16" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="8" cy="8" r="6.6" />
+        <circle cx="8" cy="4.9" r=".55" fill="currentColor" />
+        <path d="M4.6 6.6c2.2.55 4.6.55 6.8 0M8 7v2.3M6.5 12l1.5-2.7L9.5 12" />
+      </svg>
+    </button>
+    <div class="a11y-painel" id="a11yPainel" role="dialog" aria-labelledby="a11yTitulo" hidden>
+      <div class="a11y-cab">
+        <h2 id="a11yTitulo" data-t="a11yTitulo">Acessibilidade</h2>
+        <button class="a11y-x" id="a11yFechar" type="button" data-t-aria="a11yFechar">
+          <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" /></svg>
+        </button>
+      </div>
+
+      <section class="a11y-grupo" aria-labelledby="a11yLeituraH">
+        <h3 id="a11yLeituraH" data-t="a11yLeitura">Leitura em voz alta</h3>
+        <button class="a11y-op" id="lerSecao" type="button"><span data-t="a11yOuvirSecao">Ouvir esta seção</span></button>
+        <button class="a11y-op" id="lerPagina" type="button"><span data-t="a11yOuvirPagina">Ouvir a página toda</span></button>
+        <button class="a11y-op" id="lerParar" type="button" hidden><span data-t="a11yParar">Parar leitura</span></button>
+        <p class="a11y-aviso" id="a11yAviso" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="a11y-grupo" aria-labelledby="a11yTextoH">
+        <h3 id="a11yTextoH" data-t="a11yTexto">Tamanho do texto</h3>
+        <div class="a11y-passo">
+          <button class="a11y-mini" id="textoMenos" type="button" data-t-aria="a11yMenos"><span aria-hidden="true">A−</span></button>
+          <output id="textoValor" aria-live="polite">100%</output>
+          <button class="a11y-mini" id="textoMais" type="button" data-t-aria="a11yMais"><span aria-hidden="true">A+</span></button>
+        </div>
+      </section>
+
+      <section class="a11y-grupo">
+        <button class="a11y-chave" id="chaveContraste" type="button" role="switch" aria-checked="false"><span data-t="a11yContraste">Alto contraste</span><i aria-hidden="true"></i></button>
+        <button class="a11y-chave" id="chaveMovimento" type="button" role="switch" aria-checked="false"><span data-t="a11yMovimento">Reduzir movimento</span><i aria-hidden="true"></i></button>
+      </section>
+
+      <button class="a11y-reset" id="a11yReset" type="button" data-t="a11yRedefinir">Redefinir</button>
+    </div>
+  </div>
+
+  <main class="stage" id="stage">
+
+    <!-- abertura -->
+    <section class="scene" id="inicio" aria-label="Abertura" data-t-aria="secAbertura">
+      <div class="scene-inner hero">
+        <h1 class="h1 in" style="--i:0"><span data-t="heroTitulo">Explore moedas</span><span class="l2" id="rotator" aria-live="off">
+            <span class="on">do Brasil</span><span>do Japão</span><span>de Roma</span><span>do Canadá</span><span>do
+              Egito</span><span>do Reino Unido</span>
+          </span></h1>
+        <p class="lede in" style="--i:1" data-t="heroLede">Jogue moedas de outros países e de outras épocas. Cara ou coroa, o resto é
+          descoberta.</p>
+        <div class="ctas in" style="--i:2">
+          <a class="btn btn-dark" href="/" data-t="heroJogar">Jogar no coininbox.cc <span class="arr">↘</span></a>
+          <button class="btn btn-line" type="button" data-go="1" data-t="heroExplorar">Explorar <span class="arr">↓</span></button>
+        </div>
+        <div class="chapters in" style="--i:3">
+          <button type="button" data-go="1" data-t="capExplorar"><b>Explore</b> o mundo</button>
+          <button type="button" data-go="2" data-t="capIncomuns"><b>Moedas</b> incomuns</button>
+          <button type="button" data-go="3" data-t="capTempo"><b>Viaje</b> no tempo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- explorar -->
+    <section class="scene" id="explorar" aria-label="Explore moedas do mundo" data-t-aria="secExplorar">
+      <div class="scene-inner">
+        <div class="explore">
+          <div class="explore-head">
+            <h2 class="h2 in" style="--i:0" data-t="explorarTitulo">Explore moedas<br><span class="serif">do mundo</span></h2>
+            <p class="eyebrow in" style="--i:1" data-t="explorarEyebrow"><b>+100</b> moedas e histórias países</p>
+          </div>
+          <div class="places" id="places"></div>
+          <div class="readout caps in" style="--i:9"><span class="bar"></span><span id="readout"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- moedas incomuns -->
+    <section class="scene" id="incomuns" aria-label="Moedas incomuns" data-t-aria="secIncomuns">
+      <div class="scene-inner">
+        <div class="odd">
+          <div class="odd-core">
+            <p class="eyebrow in" style="--i:0" data-t="incomunsEyebrow">Moedas incomuns</p>
+            <h2 class="h2 in" style="--i:1" data-t="incomunsTitulo">Nem toda moeda <span class="serif">é redonda.</span></h2>
+          </div>
+          <div class="specs" id="specs"></div>
+          <p class="specs-fonte in" style="--i:7" id="specsFonte"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- viaje no tempo -->
+    <section class="scene" id="tempo" aria-label="Viaje no tempo" data-t-aria="secTempo">
+      <div class="scene-inner">
+        <div class="time">
+          <div class="time-head">
+            <p class="eyebrow in" style="--i:0" data-t="tempoEyebrow">Viaje no tempo</p>
+            <h2 class="h2 in" style="--i:1" data-t="tempoTitulo">2.200 anos <span class="serif">em quatro moedas.</span></h2>
+            <div class="story">
+              <p class="in" style="--i:2" data-t="historia.0">A tradição do 'cara ou coroa' tem raízes na Roma Antiga, onde o jogo era
+                conhecido como 'navio ou cara' (<em>navia aut caput</em>).</p>
+              <p class="in" style="--i:3" data-t="historia.1">A brincadeira fazia referência às moedas da época: de um lado, traziam o rosto
+                do deus Jano (ser mitológico de duas faces), e do outro, a imagem de uma embarcação, já que os romanos o
+                consideravam o inventor dos barcos.</p>
+              <p class="in" style="--i:4" data-t="historia.2">Com o tempo, a prática navegou o mundo e moldou-se à cultura de cada país. No
+                Reino Unido, virou <em>'heads or tails'</em> (cabeças ou caudas) e, no México, 'águia ou sol'.</p>
+              <p class="in" style="--i:5" data-t="historia.3">No Brasil, a expressão nasceu no período colonial, na época das 'patacas'. Em
+                1727, as moedas ganharam um novo design: uma face exibia o rosto (a 'cara') do Rei de Portugal, D. João
+                V, enquanto o verso estampava as armas da 'coroa' portuguesa.</p>
+            </div>
+          </div>
+          <ol class="rows">
+            <li class="row in" style="--i:3" data-linha="0">
+              <div class="slot" data-slot="2"></div>
+              <div class="yr">211<small>a.C.</small></div>
+              <p><b>Roma</b>Surge o denário de prata, marcado com um X.</p>
+            </li>
+            <li class="row in" style="--i:4" data-linha="1">
+              <div class="slot" data-slot="3"></div>
+              <div class="yr">1987</div>
+              <p><b>Canadá</b>O loonie de 11 lados substitui a nota de 1 dólar.</p>
+            </li>
+            <li class="row in" style="--i:5" data-linha="2">
+              <div class="slot" data-slot="0"></div>
+              <div class="yr">1994</div>
+              <p><b>Brasil</b>Nasce o Real.</p>
+            </li>
+            <li class="row in" style="--i:6" data-linha="3">
+              <div class="slot" data-slot="5"></div>
+              <div class="yr">2017</div>
+              <p><b>Reino Unido</b>A libra ganha 12 lados e dois metais.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- a caixa -->
+    <section class="scene" id="caixa" aria-label="Coin in box">
+      <div class="scene-inner">
+        <div class="fin">
+          <p class="eyebrow in" style="--i:0" data-t="caixaEyebrow">A caixa</p>
+          <h2 class="h1 in" style="--i:1">Coin <span class="serif">in</span> box</h2>
+          <p class="lede in" style="--i:2" data-t="caixaLede">Todas essas moedas cabem numa caixa. Ela está aberta.</p>
+          <div class="ctas in" style="--i:3">
+            <a class="btn btn-dark" href="/" data-t="caixaAbrir">Abrir a caixa <span class="arr">↘</span></a>
+            <button class="btn btn-line" type="button" data-go="0" data-t="caixaVoltar">Voltar ao início</button>
+          </div>
+          <p class="url in" style="--i:4">coininbox.cc</p>
+          <footer class="rodape in" style="--i:5">
+            <span><span data-t="rodapeDev">Desenvolvido por</span> <a href="https://maycristina.github.io" target="_blank" rel="noopener">Mayara</a></span>
+            <a class="rodape-gh" href="https://github.com/maycristina" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.5 7.5 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg></a>
+            <button class="rodape-gh rodape-btn" id="compartilharBtn" type="button" data-t-aria="compartilhar" data-t-title="compartilhar"><svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 10V2.5M5 5.2 8 2.3l3 2.9M3.5 8.5v4.2h9V8.5" /></svg></button>
+            <a class="rodape-priv" href="/privacy/" data-t="rodapePrivacidade">Privacidade</a>
+            <span class="rodape-aviso" id="compartilharAviso" role="status" aria-live="polite"></span>
+            <span>© 2026 Mayara. <span data-t="rodapeDireitos">Todos os direitos reservados.</span></span>
+          </footer>
+        </div>
+      </div>
+    </section>
+  </main>
+
+</body>
+
+</html>
